@@ -87,6 +87,11 @@ openssl req -new \
     -out $domain-csr.pem
 openssl x509 -req -sha256 \
     -signkey $domain-keypair.pem \
+    -extensions a \
+    -extfile <(echo "[a]
+        subjectAltName=DNS:$domain
+        extendedKeyUsage=serverAuth
+        ") \
     -days 365 \
     -in  $domain-csr.pem \
     -out $domain-crt.pem
