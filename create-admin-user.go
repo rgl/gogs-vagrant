@@ -67,7 +67,7 @@ func runCreateAdminUser(ctx *cli.Context) error {
 	}
 
 	t := &models.AccessToken{
-		UID:  u.Id,
+		UID:  u.ID,
 		Name: "api",
 	}
 

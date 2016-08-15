@@ -22,7 +22,7 @@ if $testing; then
 fi
 
 # create user and database.
-sudo -sHu postgres psql -c "create role git login password 'password'"
+sudo -sHu postgres psql -c 'create role git login'
 sudo -sHu postgres createdb -E UTF8 -O git gogs
 
 # show version, users and databases.
