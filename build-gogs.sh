@@ -9,7 +9,7 @@ if [ ! -d $GOPATH/src/github.com/gogits/gogs ]; then
   ln -s /vagrant/create-admin-user.go $GOPATH/src/github.com/gogits/gogs/cmd/
 fi
 if [ ! -f $GOPATH/bin/glide ]; then
-  git clone -b 0.10.2 https://github.com/Masterminds/glide $GOPATH/src/github.com/Masterminds/glide
+  git clone -b v0.11.1 https://github.com/Masterminds/glide $GOPATH/src/github.com/Masterminds/glide
   cd $GOPATH/src/github.com/Masterminds/glide
   make build
   go install
