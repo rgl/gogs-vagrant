@@ -12,13 +12,13 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/codegangsta/cli"
+	"github.com/urfave/cli"
 
 	"github.com/gogits/gogs/models"
-	"github.com/gogits/gogs/modules/setting"
+	"github.com/gogits/gogs/pkg/setting"
 )
 
-var CmdCreateAdminUser = cli.Command{
+var CreateAdminUser = cli.Command{
 	Name:        "create-admin-user",
 	Usage:       "Creates a new administrator user and dumps the user API key",
 	Description: "Creates a new administrator user and dumps the user API key",

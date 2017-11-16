@@ -8,6 +8,9 @@ set -eux
 domain=git.example.com
 testing=true
 
+# refresh package cache.
+apt-get update
+
 # install postgres.
 apt-get install -y --no-install-recommends git postgresql
 
@@ -43,7 +46,12 @@ chmod 750 /home/git
 install -d -o git -g root -m 750 /home/git/gogs-repositories
 
 # build and install gogs from source.
-apt-get install -y --no-install-recommends golang-go node-less
+apt-get install -y --no-install-recommends software-properties-common
+add-apt-repository ppa:gophers/archive
+apt-get update
+apt-get install -y --no-install-recommends golang-1.9-go node-less
+echo 'export PATH="$PATH:/usr/lib/go-1.9/bin"' >/etc/profile.d/golang.sh
+source /etc/profile.d/golang.sh
 bash /vagrant/build-gogs.sh
 install -o root -g git -m 755 -d /opt/gogs
 cp gopath/bin/gogs /opt/gogs/
